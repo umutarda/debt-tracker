@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grup Borç Takibi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="mainTitle">💰 Grup Borç Takibi</h1>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="setLanguage('tr')">TR</button>
+                <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+            </div>
+        </div>
+        
+        <div class="add-payment">
+            <h2 id="addPaymentTitle">Ödeme Ekle</h2>
+            <div class="form-group">
+                <label for="payer" id="payerLabel">Kim ödedi?</label>
+                <select id="payer">
+                    <option value="" id="selectPersonOption">Kişi seçin...</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="amount" id="amountLabel">Tutar (TL)</label>
+                <input type="number" id="amount" placeholder="Tutarı girin" min="0" step="0.01">
+            </div>
+
+            <div class="form-group">
+                <label id="splitLabel">Paylaşılacak kişiler:</label>
+                <div class="checkbox-group" id="splitGroup"></div>
+                <div class="error" id="splitError"></div>
+            </div>
+
+            <button onclick="addPayment()" id="addButton">Ödeme Ekle</button>
+        </div>
+
+        <div class="debts-section">
+            <h2 id="debtsTitle">Mevcut Borçlar</h2>
+            <div id="debtsContainer"></div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+    
+    <!-- App Scripts -->
+    <script src="config.js"></script>
+    <script src="translations.js"></script>
+    <script src="debtCalculator.js"></script>
+    <script src="ui.js"></script>
+    <script src="firebase-service.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
