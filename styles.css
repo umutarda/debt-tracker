@@ -6,10 +6,10 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.6) 0%, rgba(118, 75, 162, 0.6) 100%),
-                url('Untitled.webp');
+    background: linear-gradient(135deg, rgba(102, 126, 234, 1) 0%, rgba(118, 75, 162, 1) 100%);
+                
     background-size: cover;
-    background-position: center;
+    background-position: right center;
     background-attachment: fixed;
     min-height: 100vh;
     padding: 20px;
@@ -125,6 +125,61 @@ button:hover {
 
 .debts-section {
     margin-top: 30px;
+}
+
+.history-section {
+    margin-top: 30px;
+}
+
+.history-table {
+    background: #f8f9fa;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex: 1;
+}
+
+.history-payer {
+    font-weight: 600;
+    color: #667eea;
+    min-width: 80px;
+}
+
+.history-description {
+    color: #666;
+    font-style: italic;
+}
+
+.history-amount {
+    font-weight: 600;
+    color: #333;
+    min-width: 80px;
+    text-align: right;
+}
+
+.no-history {
+    padding: 20px;
+    text-align: center;
+    color: #999;
+    font-style: italic;
 }
 
 .person-debts {

@@ -62,6 +62,7 @@ function renderDebts() {
 
 function clearForm() {
     document.getElementById('amount').value = '';
+    document.getElementById('description').value = '';
     const splitCheckboxes = document.querySelectorAll('#splitGroup input[type="checkbox"]:checked');
     splitCheckboxes.forEach(cb => cb.checked = false);
     document.getElementById('splitError').textContent = '';
@@ -70,4 +71,37 @@ function clearForm() {
 function showError(message) {
     const errorDiv = document.getElementById('splitError');
     errorDiv.textContent = message;
+}
+
+function renderHistory(transactions) {
+    const container = document.getElementById('historyContainer');
+    container.innerHTML = '';
+    
+    if (!transactions || transactions.length === 0) {
+        container.innerHTML = `<div class="no-history">${getTranslation('noHistory')}</div>`;
+        return;
+    }
+    
+    const historyTable = document.createElement('div');
+    historyTable.className = 'history-table';
+    
+    // Show last 20 transactions
+    const recentTransactions = transactions.slice(-20).reverse();
+    
+    recentTransactions.forEach(transaction => {
+        const historyItem = document.createElement('div');
+        historyItem.className = 'history-item';
+        
+        historyItem.innerHTML = `
+            <div class="history-info">
+                <span class="history-payer">${transaction.payer}</span>
+                <span class="history-description">${transaction.description || '-'}</span>
+            </div>
+            <span class="history-amount">${transaction.amount.toFixed(2)} TL</span>
+        `;
+        
+        historyTable.appendChild(historyItem);
+    });
+    
+    container.appendChild(historyTable);
 }

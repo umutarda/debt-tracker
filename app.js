@@ -2,6 +2,7 @@
 function addPayment() {
     const payer = document.getElementById('payer').value;
     const amount = parseFloat(parseFloat(document.getElementById('amount').value).toFixed(2));
+    const description = document.getElementById('description').value.trim();
     const splitCheckboxes = document.querySelectorAll('#splitGroup input[type="checkbox"]:checked');
     const splitWith = Array.from(splitCheckboxes).map(cb => cb.value);
     
@@ -26,6 +27,7 @@ function addPayment() {
     
     // Save to Firebase
     firebaseService.saveDebts();
+    firebaseService.addTransaction(payer, amount, description, splitWith);
     
     // Update UI
     clearForm();
@@ -37,4 +39,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeUI();
     firebaseService.initialize();
     renderDebts();
+    renderHistory([]);
 });

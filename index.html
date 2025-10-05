@@ -31,6 +31,11 @@
             </div>
 
             <div class="form-group">
+                <label for="description" id="descriptionLabel">Açıklama</label>
+                <input type="text" id="description" placeholder="Ödeme açıklaması (ör: Yemek, Kira)">
+            </div>
+
+            <div class="form-group">
                 <label id="splitLabel">Paylaşılacak kişiler:</label>
                 <div class="checkbox-group" id="splitGroup"></div>
                 <div class="error" id="splitError"></div>
@@ -42,6 +47,11 @@
         <div class="debts-section">
             <h2 id="debtsTitle">Mevcut Borçlar</h2>
             <div id="debtsContainer"></div>
+        </div>
+
+        <div class="history-section">
+            <h2 id="historyTitle">Son İşlemler</h2>
+            <div id="historyContainer"></div>
         </div>
     </div>
 
